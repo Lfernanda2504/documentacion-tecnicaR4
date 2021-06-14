@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css"/>
+    <title>Documentación técnica</title>
+</head>
+<nav id="navbar">
+    <header>
+        CSS  Documentación
+    </header>
+    <li>
+        <a class="nav-link" href="#introdution">Introducción</a>
+    </li>
+    <li>
+        <a class="nav-link" href="#selector">Selectores</a>
+    </li>
+    <li>
+        <a class="nav-link" href="#variables">Variables</a>
+    </li>
+    <li>
+        <a class="nav-link" href="#accesibilidad">Accesbilidad</a>
+    </li>
+    <li>
+        <a class="nav-link" href="#media-queries">Media queries</a>
+    </li>  
+</nav>
+<body>
+<main id="main-doc">
+    <section class="main-section" id="introdution">
+        <header >Introducción</header>
+            <p>es un lenguaje para definir el estilo o la apariencia de las páginas web, escritas con HTML o de los documentos XML.
+                 CSS se creó para separar el contenido de la forma, a la vez que permite a los diseñadores mantener un control mucho más preciso sobre la apariencia de las páginas.</p>
+            <p>El objetivo inicial de CSS, separar el contenido de la forma, se cumplió ya con las primeras especificaciones del lenguaje. Sin embargo, el objetivo de ofrecer un control total a los diseñadores sobre los elementos de la página ha sido más difícil de cubrir. Las especificaciones anteriores del lenguaje tenían muchas utilidades para aplicar estilos a las webs, pero los desarrolladores aun continúan usando trucos diversos para conseguir efectos tan comunes o tan deseados como los bordes redondeados 
+                o el sombreado de elementos en la página.</p>
+    </section>
+    <section class="main-section" id="selector">
+        <header>Selectores </header>
+            <p>Un selector es un conjunto de reglas de estilos aplicadas múltiples elementos de la hoja html. En lugar de aplicar el estilo
+                elemento por elemento, lo aplicamos de manera global.</p>
+            <p><strong>Principales selectores</strong></p>
+            <ul>
+                <li><strong>Id</strong>
+                    Se define mediante una # justo antes del nombre de la id. Las reglas de estilo que contiene se aplican al elemento que tenga la id indicada.
+                    <code>#id{
+                        /* Estilos */
+                        }
+                    </code>
+                </li>
+                <li>
+                    <strong>Clases</strong>
+                    Se define mediante un . justo antes del nombre de la clase.
+                     Las reglas de estilo que contiene se aplican a cualquier elemento que tenga la clase indicada. Debido a que un elemento puede tener varias clases, también puede recibir estilo de varios selectores de clase.
+                    <code>
+                        .clase{
+                            /* Estilos */
+                            }
+                    </code>
+                </li>
+                <li>
+                    <strong>Elemento</strong>
+                    Aplica estilo a todos los elementos que tengan la etiqueta html indicada. 
+                    Por ejemplo, un selector del elemento div aplicaría estilos a todos los div.
+                    <code>div{
+                        /* Estilos */
+                        }
+                    </code>
+                </li>
+            </ul>
+    </section>
+    <section class="main-section" id="variables">
+        <header>Variables</header>
+            <p>Declaración y asignación: --nombrevariable: value;</p>
+            <p>Utilización: propiedad: var(--nombrevariable, fallback);</p>
+            <lu>
+                <li>El fallback no es necesario. Se utiliza para que el navegador
+                 tenga un respaldo en caso de que la variable sea inválida. Es útil para debuggear.</li>
+                <li>Otra manera de hacer respaldos es poner la misma propiedad justo antes con un valor con más soporte (aprovechando que, en caso de igual importancia, 
+                la prioridad va de abajo hacia arriba).</li>
+            </lu>
+            <p>Las variables en CSS también tienen efecto cascada. 
+                Por tanto, son utilizables dentro del elemento en el que han sido creadas y de cualquiera de los elementos que estén anidados dentro. Por esto, las variables CSS suelen declararse en la pseudoclase :root (contenedor de todo el documento .html).</p>
+    </section>
+    <section class="main-section" id="accesibilidad">
+        <header>Accesibilidad</header>
+        <p><strong>Elementos visibles sólo para lectores de pantalla</strong>
+            Esto es útil para mantener elementos que son útiles para el lector de pantalla 
+            pero que no queremos que sean visibles para la mayoría de usuarios, como por ejemplo el h1.</p>
+            <code>.sr-only {
+                position: absolute;
+                left: -10000px;
+                width: 1px;
+                height: 1px;
+                top: auto;
+                overflow: hidden;
+                }
+            </code>
+            <p><strong>Ratio de contraste y daltonismo</strong>
+                Las WCAG recomiendan que el ratio de contraste de texto respecto a fondo sea de por lo menos 4,5:1.
+                Se debe evitar destacar texto exclusivamente mediante tono mientras se mantienen saturación o luminosidad similares a las del contenido que lo rodea,
+                o diferenciar fondo de primer plano sólo por luminosidad o saturación (sin cambiar o cambiando poco el tono).</p>
+            </section>
+    <section class="main-section" id="media-queries">
+        <header>Media queries</header>
+            <p>Permiten cambiar los valores de las reglas de un selector en función del tamaño del viewport. 
+                Se utilizan para hacer contenido adaptativo. También pueden alterar el valor de las variables.</p>
+                <code>@media (max-width: 350px) {
+                    :root {
+                    --penguin-size: 200px;
+                    }
+                    p {
+                    color: red;
+                    }
+                    }
+                </code>
+            <p>Esta media querie se activaría si el ancho del viewport es menor o igual a 350 píxeles.</p>
+        </header>
+    </section>
+</main>  
+</body>
+</html>
